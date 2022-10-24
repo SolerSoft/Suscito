@@ -53,8 +53,26 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Modules\AT\Pages\" />
 	  <Folder Include="Modules\Core\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Modules\AT\Pages\ATHomePage.xaml.cs">
+	    <DependentUpon>ATHomePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Modules\AT\Controls\StyleInfoCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Modules\AT\Pages\ATHomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
 ﻿using SolerSoft.Maui.Navigation;
-using static Android.Graphics.ColorSpace;
 
 namespace Suscito;
 

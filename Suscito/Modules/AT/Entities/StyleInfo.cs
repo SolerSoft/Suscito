@@ -38,6 +38,56 @@
     /// </typeparam>
     public abstract class StyleInfo<TStyle> : StyleInfo where TStyle : Enum
     {
+        #region Static Version
+
+        #region Private Fields
+
+        private static Dictionary<TStyle, StyleInfo<TStyle>> s_infoCache;
+
+        #endregion Private Fields
+
+        #region Private Methods
+
+        /// <summary>
+        /// Gets a previously created style info if it's already been created, otherwise creates and caches it.
+        /// </summary>
+        /// <param name="style">
+        /// The style to get.
+        /// </param>
+        /// <param name="creator">
+        /// The method to call to create the info if not found.
+        /// </param>
+        /// <returns>
+        /// The style info.
+        /// </returns>
+        protected static TStyleInfo GetOrCreateInfo<TStyleInfo>(TStyle style, Func<TStyleInfo> creator) where TStyleInfo : StyleInfo<TStyle>
+        {
+            // Ensure the cache exists
+            if (s_infoCache == null) { s_infoCache = new Dictionary<TStyle, StyleInfo<TStyle>>(); }
+
+            // Placeholder
+            StyleInfo<TStyle> info;
+
+            // Try to get the existing
+            if (!s_infoCache.TryGetValue(style, out info))
+            {
+                // Existing not found, create and add
+                info = creator();
+                s_infoCache[style] = info;
+            }
+
+            // Done!
+            return (TStyleInfo)info;
+        }
+
+        #endregion Private Methods
+
+        #endregion // Static Version
+
+
+
+        #region Instance Version
+
         #region Public Constructors
 
         /// <summary>
@@ -61,5 +111,7 @@
         public TStyle Style { get; private set; }
 
         #endregion Public Properties
+
+        #endregion // Instance Version
     }
 }
