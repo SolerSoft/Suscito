@@ -1,5 +1,19 @@
-﻿namespace Suscito.Modules.AT
+﻿using Suscito.Modules.AT.Resources;
+
+namespace Suscito.Modules.AT.Entities
 {
+    /// <summary>
+    /// The core attachment styles attributed to <see href="https://en.wikipedia.org/wiki/John_Bowlby">John Bowlby</see>.
+    /// </summary>
+    public enum BowlbyStyle
+    {
+        Unknown,
+        Anxious,
+        Avoidant,
+        Disorganized,
+        Secure
+    }
+
     /// <summary>
     /// Provides information about a variant of an Attachment Theory style.
     /// </summary>
@@ -36,58 +50,8 @@
     /// <typeparam name="TStyle">
     /// The enum that represents the style types.
     /// </typeparam>
-    public abstract class StyleInfo<TStyle> : StyleInfo where TStyle : Enum
+    public class StyleInfo<TStyle> : StyleInfo where TStyle : Enum
     {
-        #region Static Version
-
-        #region Private Fields
-
-        private static Dictionary<TStyle, StyleInfo<TStyle>> s_infoCache;
-
-        #endregion Private Fields
-
-        #region Private Methods
-
-        /// <summary>
-        /// Gets a previously created style info if it's already been created, otherwise creates and caches it.
-        /// </summary>
-        /// <param name="style">
-        /// The style to get.
-        /// </param>
-        /// <param name="creator">
-        /// The method to call to create the info if not found.
-        /// </param>
-        /// <returns>
-        /// The style info.
-        /// </returns>
-        protected static TStyleInfo GetOrCreateInfo<TStyleInfo>(TStyle style, Func<TStyleInfo> creator) where TStyleInfo : StyleInfo<TStyle>
-        {
-            // Ensure the cache exists
-            if (s_infoCache == null) { s_infoCache = new Dictionary<TStyle, StyleInfo<TStyle>>(); }
-
-            // Placeholder
-            StyleInfo<TStyle> info;
-
-            // Try to get the existing
-            if (!s_infoCache.TryGetValue(style, out info))
-            {
-                // Existing not found, create and add
-                info = creator();
-                s_infoCache[style] = info;
-            }
-
-            // Done!
-            return (TStyleInfo)info;
-        }
-
-        #endregion Private Methods
-
-        #endregion // Static Version
-
-
-
-        #region Instance Version
-
         #region Public Constructors
 
         /// <summary>
@@ -103,7 +67,55 @@
 
         #endregion Public Constructors
 
+        #region Private Methods
+
+        /// <summary>
+        /// Gets the name of the resource with the specified suffix.
+        /// </summary>
+        /// <param name="suffix">
+        /// The suffix to add to the resource name.
+        /// </param>
+        /// <returns>
+        /// The fully qualified name of the resource.
+        /// </returns>
+        private string GetResourceName(string suffix)
+        {
+            return $"{typeof(TStyle).Name}.{Enum.GetName(typeof(TStyle), Style)}.{suffix}";
+        }
+
+        /// <summary>
+        /// Gets a string resource with the specified suffix.
+        /// </summary>
+        /// <param name="suffix">
+        /// The suffix of the string resource.
+        /// </param>
+        /// <returns>
+        /// The string resource.
+        /// </returns>
+        private string GetString(string suffix)
+        {
+            // Get the resource name
+            string resName = GetResourceName(suffix);
+
+            // Get the string
+            return ATStyleRes.ResourceManager.GetString(resName);
+        }
+
+        #endregion Private Methods
+
         #region Public Properties
+
+        /// <inheritdoc />
+        public override string AKA => GetString(nameof(AKA));
+
+        /// <inheritdoc />
+        public override string Description => GetString(nameof(Description));
+
+        /// <inheritdoc />
+        public override string LearnMoreUrl => GetString(nameof(LearnMoreUrl));
+
+        /// <inheritdoc />
+        public override string Name => GetString(nameof(Name));
 
         /// <summary>
         /// Gets the style for which information is being provided.
@@ -111,7 +123,5 @@
         public TStyle Style { get; private set; }
 
         #endregion Public Properties
-
-        #endregion // Instance Version
     }
 }

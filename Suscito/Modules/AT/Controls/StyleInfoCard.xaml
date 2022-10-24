@@ -9,6 +9,14 @@
                 Text="{Binding StyleInfo.Name}"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
+            <Label 
+                Text="{Binding StyleInfo.AKA}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Label 
+                Text="{Binding StyleInfo.Description}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
         </VerticalStackLayout>
     </Frame>
 </ContentView>

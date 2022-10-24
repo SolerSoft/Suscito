@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BowlbyStyleInfo = Suscito.Modules.AT.Entities.StyleInfo<Suscito.Modules.AT.Entities.BowlbyStyle>;
 
 namespace Suscito.Modules.AT.Pages
 {
@@ -17,7 +18,7 @@ namespace Suscito.Modules.AT.Pages
         public ATHomeVM()
 		{
 			BowlbyStyles = Enum.GetValues(typeof(BowlbyStyle)).Cast<BowlbyStyle>().ToList();
-			BowlbyStyleInfo = BowlbyStyleInfo.Unknown;
+			BowlbyStyleInfo = new BowlbyStyleInfo(BowlbyStyle.Unknown);
 		}
 
 		/// <summary>

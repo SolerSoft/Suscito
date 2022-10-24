@@ -64,6 +64,18 @@
 	  <Compile Update="Modules\AT\Pages\ATHomePage.xaml.cs">
 	    <DependentUpon>ATHomePage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Modules\AT\Resources\ATStyleRes.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ATStyleRes.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Modules\AT\Resources\ATStyleRes.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ATStyleRes.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
