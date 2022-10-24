@@ -1,7 +1,5 @@
 
-using Suscito.Modules.AT.Entities;
-
-namespace Suscito.Modules.AT.Controls;
+namespace Suscito.Modules.AT;
 
 public partial class StyleInfoCard : ContentView
 {

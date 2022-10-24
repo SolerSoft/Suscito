@@ -1,10 +1,10 @@
 using SolerSoft.Maui.Mvvm;
 
-namespace Suscito.Modules.AT.Pages;
+namespace Suscito.Modules.AT;
 
-public partial class ATHome : ViewPage<ATHomeVM>
+public partial class ATHomePage : ViewPage<ATHomeVM>
 {
-	public ATHome()
+	public ATHomePage()
 	{
 		EnsureViewModel();
 		InitializeComponent();

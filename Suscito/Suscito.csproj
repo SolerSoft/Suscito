@@ -75,6 +75,7 @@
 	  <EmbeddedResource Update="Modules\AT\Resources\ATStyleRes.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ATStyleRes.Designer.cs</LastGenOutput>
+	    <CustomToolNamespace>Suscito.Modules.AT</CustomToolNamespace>
 	  </EmbeddedResource>
 	</ItemGroup>
 

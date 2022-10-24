@@ -1,6 +1,5 @@
-﻿using Suscito.Modules.AT.Resources;
-
-namespace Suscito.Modules.AT.Entities
+﻿
+namespace Suscito.Modules.AT
 {
     /// <summary>
     /// The core attachment styles attributed to <see href="https://en.wikipedia.org/wiki/John_Bowlby">John Bowlby</see>.

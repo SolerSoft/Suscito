@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Suscito.Modules.AT.Resources {
+namespace Suscito.Modules.AT {
     using System;
     
     

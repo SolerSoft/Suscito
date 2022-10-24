@@ -1,13 +1,12 @@
 ﻿using SolerSoft.Maui.Mvvm;
-using Suscito.Modules.AT.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BowlbyStyleInfo = Suscito.Modules.AT.Entities.StyleInfo<Suscito.Modules.AT.Entities.BowlbyStyle>;
+using BowlbyStyleInfo = Suscito.Modules.AT.StyleInfo<Suscito.Modules.AT.BowlbyStyle>;
 
-namespace Suscito.Modules.AT.Pages
+namespace Suscito.Modules.AT
 {
     public class ATHomeVM : ViewModel
     {
