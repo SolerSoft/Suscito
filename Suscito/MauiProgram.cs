@@ -1,4 +1,6 @@
-﻿namespace Suscito;
+﻿using Microsoft.AspNetCore.Components.WebView.Maui;
+using Suscito.Data;
+namespace Suscito;
 
 public static class MauiProgram
 {
@@ -15,6 +17,14 @@ public static class MauiProgram
 
 		builder.Services.AddLocalization();
 
-		return builder.Build();
+        builder.Services.AddMauiBlazorWebView();
+
+#if DEBUG
+        builder.Services.AddBlazorWebViewDeveloperTools();
+#endif
+
+        builder.Services.AddSingleton<WeatherForecastService>();
+
+        return builder.Build();
 	}
 }

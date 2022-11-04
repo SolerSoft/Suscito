@@ -7,9 +7,14 @@
     xmlns:local="clr-namespace:Suscito"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate AT:ATHomePage}"
-        Route="ATHome" />
-
+    <TabBar>
+        <ShellContent
+            Title="AT Home"
+            ContentTemplate="{DataTemplate AT:ATHomePage}"
+            Route="ATHome" />
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="Home" />
+    </TabBar>
 </Shell>
