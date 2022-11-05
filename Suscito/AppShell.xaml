@@ -3,31 +3,42 @@
     x:Class="Suscito.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:AT="clr-namespace:Suscito.Modules.AT"
+    xmlns:at="clr-namespace:Suscito.Modules.AT"
+    xmlns:cp="clr-namespace:Suscito.Modules.Core.Pages"
     xmlns:mtm="clr-namespace:MauiToolkit.Markup;assembly=MauiToolkit"
     xmlns:local="clr-namespace:Suscito">
 
     <FlyoutItem Title="AT Home">
         <Tab>
             <ShellContent
-                ContentTemplate="{DataTemplate AT:ATHomePage}"
+                ContentTemplate="{DataTemplate at:ATHomePage}"
                 Route="ATHome" />
         </Tab>
     </FlyoutItem>
-    
+
     <FlyoutItem Title="Home">
-        <Tab>
-            <ShellContent
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="Home" />
-        </Tab>
-    </FlyoutItem>
-    
-    <FlyoutItem Title="Foo">
         <Tab>
             <ShellContent
             ContentTemplate="{mtm:BlazorTemplate local:Main }"
             Route="Main" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Test">
+        <Tab Title="Index">
+            <ShellContent
+                ContentTemplate="{mtm:BlazorTemplate cp:Index }"
+                Route="Index" />
+        </Tab>
+        <Tab Title="Counter">
+            <ShellContent
+                ContentTemplate="{mtm:BlazorTemplate cp:Counter }"
+                Route="Counter" />
+        </Tab>
+        <Tab Title="Fetch Data">
+            <ShellContent
+                ContentTemplate="{mtm:BlazorTemplate cp:FetchData }"
+                Route="FetchData" />
         </Tab>
     </FlyoutItem>
 </Shell>
