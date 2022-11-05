@@ -4,6 +4,9 @@ namespace Suscito;
 
 public static class MauiProgram
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
@@ -24,7 +27,7 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<WeatherForecastService>();
-		
+
         return builder.Build();
 	}
 }

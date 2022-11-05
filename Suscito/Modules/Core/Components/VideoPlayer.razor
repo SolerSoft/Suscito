@@ -2,7 +2,7 @@
 <iframe width="@Width" height="@Height" src="@src" title="@Title" frameborder="0" allow="accelerometer; clipboard-write; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 @code {
-    private string src;
+    private string src = string.Empty;
 
     protected override void OnInitialized()
     {
@@ -11,13 +11,13 @@
 
     [Parameter]
     [EditorRequired]
-    public string EmbedCode { get; set; }
+    public string EmbedCode { get; set; } = string.Empty;
 
     [Parameter]
     public int Height { get; set; } = 315;
 
     [Parameter]
-    public string Title { get; set; }
+    public string Title { get; set; } = string.Empty;
 
     [Parameter]
     public int Width { get; set; } = 560;

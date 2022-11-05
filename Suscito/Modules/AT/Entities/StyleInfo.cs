@@ -97,7 +97,7 @@ namespace Suscito.Modules.AT
             string resName = GetResourceName(suffix);
 
             // Get the string
-            return ATStyleRes.ResourceManager.GetString(resName);
+            return ATStyleRes.ResourceManager.GetString(resName) ?? String.Empty;
         }
 
         #endregion Private Methods

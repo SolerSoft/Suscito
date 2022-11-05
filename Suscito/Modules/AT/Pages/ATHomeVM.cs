@@ -10,14 +10,14 @@ namespace Suscito.Modules.AT
 {
     public class ATHomeVM : ViewModel
     {
-        private BowlbyStyle bowlbyStyle;
+		private BowlbyStyle _bowlbyStyle;
         private List<BowlbyStyle> _bowlbyStyles;
-        private BowlbyStyleInfo bowlbyStyleInfo;
+        private BowlbyStyleInfo _bowlbyStyleInfo;
 
         public ATHomeVM()
 		{
-			BowlbyStyles = Enum.GetValues(typeof(BowlbyStyle)).Cast<BowlbyStyle>().ToList();
-			BowlbyStyleInfo = new BowlbyStyleInfo(BowlbyStyle.Unknown);
+			_bowlbyStyles = Enum.GetValues(typeof(BowlbyStyle)).Cast<BowlbyStyle>().ToList();
+			_bowlbyStyleInfo = new BowlbyStyleInfo(BowlbyStyle.Unknown);
 		}
 
 		/// <summary>
@@ -40,10 +40,10 @@ namespace Suscito.Modules.AT
 		/// </value>
 		public BowlbyStyle BowlbyStyle
 		{
-			get { return bowlbyStyle; }
+			get { return _bowlbyStyle; }
 			set
 			{
-				if (SetProperty(ref bowlbyStyle, value))
+				if (SetProperty(ref _bowlbyStyle, value))
 				{
 					BowlbyStyleInfo = new BowlbyStyleInfo(value);
 				}
@@ -58,8 +58,8 @@ namespace Suscito.Modules.AT
 		/// </value>
 		public BowlbyStyleInfo BowlbyStyleInfo
 		{
-			get { return bowlbyStyleInfo; }
-			set { SetProperty(ref bowlbyStyleInfo, value); }
+			get { return _bowlbyStyleInfo; }
+			set { SetProperty(ref _bowlbyStyleInfo, value); }
 		}
 	}
 }
