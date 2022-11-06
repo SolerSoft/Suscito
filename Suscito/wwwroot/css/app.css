@@ -30,6 +30,10 @@ a, .btn-link {
     outline: 1px solid red;
 }
 
+.page-host {
+    margin: 5px;
+}
+
 .validation-message {
     color: red;
 }

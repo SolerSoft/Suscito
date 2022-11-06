@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:at="clr-namespace:Suscito.Modules.AT"
+    xmlns:comp="clr-namespace:Suscito.Modules.Communication.Pages"
     xmlns:cp="clr-namespace:Suscito.Modules.Core.Pages"
     xmlns:mtm="clr-namespace:MauiToolkit.Markup;assembly=MauiToolkit"
     xmlns:local="clr-namespace:Suscito">
@@ -23,6 +24,14 @@
             <ShellContent
                 ContentTemplate="{mtm:BlazorTemplate cp:FetchData }"
                 Route="FetchData" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Communication">
+        <Tab Title="Empathy">
+            <ShellContent
+                ContentTemplate="{mtm:BlazorTemplate comp:Empathy }"
+                Route="Index" />
         </Tab>
     </FlyoutItem>
 

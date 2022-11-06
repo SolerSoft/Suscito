@@ -18,6 +18,17 @@ public partial class AppShell : Shell
         RegisterRoutes();
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+#if WINDOWS
+        // HACK: hack due to https://github.com/dotnet/maui/issues/7227
+        // Default to locked on Windows
+        Shell.Current.FlyoutBehavior = FlyoutBehavior.Locked;
+#endif
+    }
+
     #endregion Public Constructors
 
     #region Private Methods
