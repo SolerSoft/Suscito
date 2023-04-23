@@ -7,6 +7,7 @@
     xmlns:communicationPages="clr-namespace:Suscito.Modules.Communication.Pages"
     xmlns:corePages="clr-namespace:Suscito.Modules.Core.Pages"
     xmlns:mtm="clr-namespace:MauiToolkit.Markup;assembly=MauiToolkit"
+    xmlns:mtp="clr-namespace:MauiToolkit.Pages;assembly=MauiToolkit"
     xmlns:local="clr-namespace:Suscito"
     FlyoutBehavior="Flyout"
     FlyoutIsPresented="False">
@@ -16,22 +17,23 @@
                 Icon="Resources/Images/dotnet_bot.svg">
         <ShellContent
             Title="Index"
-            ContentTemplate="{mtm:BlazorTemplate corePages:Index }"
+            ContentTemplate="{mtm:BlazorTemplate / }"
             Route="Index" />
         <ShellContent
             Title="Counter"
-            ContentTemplate="{mtm:BlazorTemplate corePages:Counter }"
+            ContentTemplate="{mtm:BlazorTemplate /thecounter }"
             Route="Counter" />
         <ShellContent
             Title="Fetch Data"
-            ContentTemplate="{mtm:BlazorTemplate corePages:FetchData }"
+            ContentTemplate="{mtm:BlazorTemplate /fetchdata }"
             Route="FetchData" />
     </FlyoutItem>
 
     <FlyoutItem Title="Communication"
                 Route="Communication">
         <ShellContent
-            ContentTemplate="{mtm:BlazorTemplate communicationPages:Index }"
+            Title="Communication"
+            ContentTemplate="{mtm:BlazorTemplate /communication }"
             Route="Index" />
     </FlyoutItem>
 
