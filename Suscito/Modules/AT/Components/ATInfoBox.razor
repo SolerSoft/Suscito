@@ -1,0 +1,35 @@
+﻿@using Suscito.Modules.AT
+@inject IATProfileProvider ProfileProvider
+
+<div class="box">
+	<div class="box-title">
+		Attachment Style Info
+	</div>
+	@ChildContent
+	@if ((ProfileProvider.User.IsUnknown) && (ProfileProvider.Partner.IsUnknown))
+	{
+		<div class="box-content">
+			More information may be available if you know your and your partners attachment styles.
+		</div>
+	}
+	else if (ProfileProvider.User.IsUnknown)
+	{
+		<div class="box-content">
+			More information may be available if you know your own attachment style.
+		</div>
+	}
+	else if (ProfileProvider.Partner.IsUnknown)
+	{
+		<div class="box-content">
+			More information may be available if you know your partners attachment style.
+		</div>
+	}
+</div>
+
+@code {
+	/// <summary>
+	/// Gets or sets any child content for the box.
+	/// </summary>
+	[Parameter]
+	public RenderFragment ChildContent { get; set; }
+}

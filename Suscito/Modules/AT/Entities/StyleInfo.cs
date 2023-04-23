@@ -2,18 +2,6 @@
 namespace Suscito.Modules.AT
 {
     /// <summary>
-    /// The core attachment styles attributed to <see href="https://en.wikipedia.org/wiki/John_Bowlby">John Bowlby</see>.
-    /// </summary>
-    public enum BowlbyStyle
-    {
-        Unknown,
-        Anxious,
-        Avoidant,
-        Disorganized,
-        Secure
-    }
-
-    /// <summary>
     /// Provides information about a variant of an Attachment Theory style.
     /// </summary>
     public abstract class StyleInfo

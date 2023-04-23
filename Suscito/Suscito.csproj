@@ -51,6 +51,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Modules\AT\Components\ATInfoBox.razor.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Modules\AT\Components\ATInfoBox.razor.css" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\..\MauiToolkit\MauiToolkit\MauiToolkit.csproj" />
 	</ItemGroup>
 

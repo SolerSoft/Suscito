@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
 using Suscito.Data;
+using Suscito.Modules.AT;
+
 namespace Suscito;
 
 public static class MauiProgram
@@ -51,6 +53,7 @@ public static class MauiProgram
             });
 
         builder.Services.AddSingleton<WeatherForecastService>();
+        builder.Services.AddSingleton<IATProfileProvider, TestATProfileProvider>();
 
         return builder.Build();
 	}
