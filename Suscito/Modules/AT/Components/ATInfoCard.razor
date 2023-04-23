@@ -1,0 +1,23 @@
+﻿@using Suscito.Modules.AT
+@inject IATQueryProvider QueryProvider
+
+@if ((string.IsNullOrEmpty(Query)) || (QueryProvider.IsTrue(Query)))
+{
+	<div class="card-content">
+		@ChildContent
+	</div>
+}
+
+@code {
+	/// <summary>
+	/// Gets or sets any child content for the card.
+	/// </summary>
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+	/// <summary>
+	/// Gets or sets the query that must be true in order to show the content.
+	/// </summary>
+	[Parameter]
+	public string? Query { get; set; }
+}

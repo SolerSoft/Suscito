@@ -53,9 +53,14 @@ public static class MauiProgram
             });
 
         builder.Services.AddSingleton<WeatherForecastService>();
-        builder.Services.AddSingleton<IATProfileProvider, TestATProfileProvider>();
 
-        return builder.Build();
+        // Create test AT service
+        var testProvider = new TestATProfileProvider();
+
+        builder.Services.AddSingleton<IATProfileProvider>(testProvider);
+		builder.Services.AddSingleton<IATQueryProvider>(testProvider);
+
+		return builder.Build();
 	}
 
 #if WINDOWS
