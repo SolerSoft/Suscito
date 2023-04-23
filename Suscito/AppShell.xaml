@@ -5,41 +5,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:at="clr-namespace:Suscito.Modules.AT"
     xmlns:comp="clr-namespace:Suscito.Modules.Communication.Pages"
-    xmlns:cp="clr-namespace:Suscito.Modules.Core.Pages"
+    xmlns:corePages="clr-namespace:Suscito.Modules.Core.Pages"
     xmlns:mtm="clr-namespace:MauiToolkit.Markup;assembly=MauiToolkit"
-    xmlns:local="clr-namespace:Suscito">
+    xmlns:local="clr-namespace:Suscito"
+    FlyoutBehavior="Flyout"
+    FlyoutIsPresented="False">
 
-    <FlyoutItem Title="Test">
-        <Tab Title="Index">
-            <ShellContent
-                ContentTemplate="{mtm:BlazorTemplate cp:Index }"
-                Route="Index" />
-        </Tab>
-        <Tab Title="Counter">
-            <ShellContent
-                ContentTemplate="{mtm:BlazorTemplate cp:Counter }"
-                Route="Counter" />
-        </Tab>
-        <Tab Title="Fetch Data">
-            <ShellContent
-                ContentTemplate="{mtm:BlazorTemplate cp:FetchData }"
-                Route="FetchData" />
-        </Tab>
+    <FlyoutItem Title="Testt" 
+                Route="Core"
+                Icon="Resources/Images/dotnet_bot.svg">
+        <ShellContent
+            Title="Index"
+            ContentTemplate="{mtm:BlazorTemplate corePages:Index }"
+            Route="Index" />
+        <ShellContent
+            Title="Counter"
+            ContentTemplate="{mtm:BlazorTemplate corePages:Counter }"
+            Route="Counter" />
+        <ShellContent
+            Title="Fetch Data"
+            ContentTemplate="{mtm:BlazorTemplate corePages:FetchData }"
+            Route="FetchData" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Communication">
-        <Tab Title="Empathy">
-            <ShellContent
-                ContentTemplate="{mtm:BlazorTemplate comp:Empathy }"
-                Route="Index" />
-        </Tab>
+    <FlyoutItem Title="Communication"
+                Route="Communication">
+        <ShellContent
+            ContentTemplate="{mtm:BlazorTemplate comp:Empathy }"
+            Route="Empathy" />
     </FlyoutItem>
 
-    <FlyoutItem Title="AT Home">
-        <Tab>
-            <ShellContent
-                ContentTemplate="{DataTemplate at:ATHomePage}"
-                Route="ATHome" />
-        </Tab>
+    <FlyoutItem Title="AT Home"
+                Route="AT">
+        <ShellContent
+            ContentTemplate="{DataTemplate at:ATHomePage}"
+            Route="ATHomePage" />
     </FlyoutItem>
 </Shell>
