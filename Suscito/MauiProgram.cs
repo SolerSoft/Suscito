@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.WebView.Maui;
+using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
 using Suscito.Data;
 namespace Suscito;
@@ -20,6 +21,13 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddLocalization();
+
+        builder.Services.AddLogging(logging =>
+        {
+            // logging.AddFilter("Microsoft.AspNetCore.Components.WebView", LogLevel.Trace);
+            logging.SetMinimumLevel(LogLevel.Trace);
+            logging.AddDebug();
+        });
 
         builder.Services.AddMauiBlazorWebView();
 
