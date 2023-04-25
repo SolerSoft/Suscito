@@ -7,10 +7,12 @@
 
 .card-title {
 	background-color: #d2d2d2;
+	border-radius: 16px;
 	color: #2e2e2e;
-	padding: 3px;
+	padding: 5px 5px 5px 10px;
 }
 
 .card-content {
 	padding: 5px;
+	margin: 0px 0px 15px 0px;
 }

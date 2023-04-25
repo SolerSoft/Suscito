@@ -1,9 +1,14 @@
 ﻿@using Suscito.Modules.AT
 @inject IATProfileProvider ProfileProvider
 
-<div class="box">
-	<div class="box-title">
-		@Title
+<div class="box border-primary">
+	<div class="box-title bg-primary bg-gradient">
+		<div class="box-icon d-inline-flex align-items-center justify-content-center bg-secondary rounded-circle shadow">
+			<i class="text-white">AT</i>
+		</div>
+		<div class="align-self-center">
+			<h5 class="text-dark">@Title</h5>
+		</div>
 	</div>
 	@ChildContent
 	@if ((ProfileProvider.User.IsUnknown) && (ProfileProvider.Partner.IsUnknown))
