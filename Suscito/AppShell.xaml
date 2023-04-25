@@ -7,7 +7,6 @@
     xmlns:communicationPages="clr-namespace:Suscito.Modules.Communication.Pages"
     xmlns:corePages="clr-namespace:Suscito.Modules.Core.Pages"
     xmlns:mtm="clr-namespace:MauiToolkit.Markup;assembly=MauiToolkit"
-    xmlns:mtp="clr-namespace:MauiToolkit.Pages;assembly=MauiToolkit"
     xmlns:local="clr-namespace:Suscito"
     FlyoutBehavior="Flyout"
     FlyoutIsPresented="False">

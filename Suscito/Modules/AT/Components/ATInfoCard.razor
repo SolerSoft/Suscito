@@ -3,12 +3,30 @@
 
 @if ((string.IsNullOrEmpty(Query)) || (QueryProvider.IsTrue(Query)))
 {
-	<div class="card-content">
-		@ChildContent
+	<div class="card">
+		@if (!string.IsNullOrEmpty(Title))
+		{
+			<div class="card-title">
+				@Title
+			</div>
+		}
+		<div class="card-content">
+			@ChildContent
+		</div>
 	</div>
 }
 
 @code {
+
+	protected override void OnInitialized()
+	{
+		// If there is no title specified, try to get one based on the query
+		if ((string.IsNullOrEmpty(Title)) && (!string.IsNullOrEmpty(Query)))
+		{
+			Title = QueryProvider.GetTitle(Query);
+		}
+	}
+
 	/// <summary>
 	/// Gets or sets any child content for the card.
 	/// </summary>
@@ -20,4 +38,10 @@
 	/// </summary>
 	[Parameter]
 	public string? Query { get; set; }
+
+	/// <summary>
+	/// Gets or sets the title of the card.
+	/// </summary>
+	[Parameter]
+	public string? Title { get; set; }
 }

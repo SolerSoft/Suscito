@@ -1,3 +1,16 @@
-﻿.card-content {
-	padding: 10px;
+﻿.card {
+	border-style: hidden;
+	border-width: 0px;
+	border-radius: 0px;
+	margin: 10px 10px 10px 10px;
+}
+
+.card-title {
+	background-color: #d2d2d2;
+	color: #2e2e2e;
+	padding: 3px;
+}
+
+.card-content {
+	padding: 5px;
 }

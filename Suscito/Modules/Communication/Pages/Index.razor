@@ -2,21 +2,4 @@
 
 <h3>Communication</h3>
 
-<a href="/counter" @onclick="HandleClick">thecounter</a><br />
-<a href="shell://Counter" >Counter</a><br />
-<a href="shell://thecounter">Shell thecounter</a><br />
-<a href="shell://Empathy">Empathy</a><br />
-<a href="shell://empathy">Empathy</a><br />
-<a href="http://www.google.com">Goog</a>
-
-@code {
-    @inject NavigationManager NavigationManager;
-
-    private void HandleClick()
-    {
-        NavigationManager.NavigateTo("/thecounter", true);
-        // NavigationManager.NavigateTo()
-        // new Modules.Core.Pages.Counter
-        // Shell.Current.GoToAsync("/counter");
-    }
-}
+<a href="/empathy">Empathy</a><br />

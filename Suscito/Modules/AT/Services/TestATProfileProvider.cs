@@ -7,12 +7,28 @@ using ProviderTest = System.Func<Suscito.Modules.AT.IATProfileProvider, bool>;
 namespace Suscito.Modules.AT
 {
 	/// <summary>
+	/// Provides information for a short query.
+	/// </summary>
+	internal class ShortQuery
+	{
+		/// <summary>
+		/// Gets or sets the test to evaluate.
+		/// </summary>
+		public ProviderTest Test { get; set; }
+
+		/// <summary>
+		/// The title to use for the shortcut.
+		/// </summary>
+		public string? Title { get; set; }
+	}
+
+	/// <summary>
 	/// A test implementation of the <see cref="IATProfileProvider" /> service.
 	/// </summary>
 	public class TestATProfileProvider : IATProfileProvider, IATQueryProvider
 	{
 		static private ParsingConfig _parsingConfig;
-		static private Dictionary<string, ProviderTest> _shortQueries;
+		static private Dictionary<string, ShortQuery> _shortQueries;
 
 		static TestATProfileProvider()
 		{
@@ -20,10 +36,19 @@ namespace Suscito.Modules.AT
 			_parsingConfig.ResolveTypesBySimpleName = true;
 
 			// Create short queries
-			_shortQueries = new Dictionary<string, ProviderTest>();
+			_shortQueries = new Dictionary<string, ShortQuery>();
 
-			_shortQueries["PartnerAvoidant"] = (p => p.Partner.BowlbyStyle == BowlbyStyle.Avoidant);
-            _shortQueries["UserAnxious"] = (p => p.User.BowlbyStyle == BowlbyStyle.Anxious);
+			_shortQueries["PartnerAvoidant"] = new ShortQuery()
+			{
+				Test = (p => p.Partner.BowlbyStyle == BowlbyStyle.Avoidant),
+				Title = "Because your partner identified as avoidant",
+			};
+
+			_shortQueries["UserAnxious"] = new ShortQuery()
+			{
+				Test = (p => p.User.BowlbyStyle == BowlbyStyle.Anxious),
+				Title = "Because you identified as anxious",
+			};
         }
 
 		#region Private Fields
@@ -53,16 +78,30 @@ namespace Suscito.Modules.AT
 		#endregion Public Constructors
 
 		#region Public Methods
+		/// <inheritdoc />
+		public string? GetTitle(string query)
+		{
+			// See if we have a shortcut
+			ShortQuery? sq;
+			if (_shortQueries.TryGetValue(query, out sq))
+			{
+				// Yes, run it
+				return sq.Title;
+			}
+
+			// No title
+			return null;
+		}
 
 		/// <inheritdoc />
 		public bool IsTrue(string query)
 		{
 			// See if we have a shortcut
-			ProviderTest? test;
-			if (_shortQueries.TryGetValue(query, out test)) 
+			ShortQuery? sq;
+			if (_shortQueries.TryGetValue(query, out sq)) 
 			{
 				// Yes, run it
-				return test(this);
+				return sq.Test(this);
 			}
 
 			// Nope, need to do long query

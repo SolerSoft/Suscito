@@ -3,7 +3,7 @@
 
 <div class="box">
 	<div class="box-title">
-		Attachment Style Info
+		@Title
 	</div>
 	@ChildContent
 	@if ((ProfileProvider.User.IsUnknown) && (ProfileProvider.Partner.IsUnknown))
@@ -32,4 +32,10 @@
 	/// </summary>
 	[Parameter]
 	public RenderFragment ChildContent { get; set; }
+
+	/// <summary>
+	/// Gets or sets the title of the box.
+	/// </summary>
+	[Parameter]
+	public string Title { get; set; } = "How it relates to Attachment Theory";
 }

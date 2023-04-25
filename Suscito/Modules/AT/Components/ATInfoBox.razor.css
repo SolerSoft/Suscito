@@ -9,7 +9,8 @@
 .box-title {
 	background-color: #b2b2b2;
 	color: #2e2e2e;
-	text-shadow: -2px -2px 2px #FFFFFF;
+	font-size: 17px;
+	font-weight: bold;
 	padding: 10px;
 }
 
